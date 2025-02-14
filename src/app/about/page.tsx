@@ -151,7 +151,7 @@ const page = () => {
 
         <CardFooter>
           <div className="flex flex-col justify-center mx-auto max-w-[460px] items-center w-full gap-8">
-            <h3 className="text-[80px] text-white">💛 Enjoy</h3>
+            <h3 className="text-5xl sm:text-[80px] text-white">💛 Enjoy</h3>
             <div className="w-full rounded-2xl py-4 px-12 gap-8 border border-[#0e464f] bg-[#041e23] flex">
               <Link className="w-full" target="_blank" href="/">
                 <Button className="w-full" variant="outline">

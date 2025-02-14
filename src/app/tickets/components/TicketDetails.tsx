@@ -36,6 +36,29 @@ const TicketDetails = ({
 
   return (
     <div>
+      <div>
+        <div className="flex justify-end gap-4">
+          <Button
+            variant="outline"
+            size="sm"
+            className="text-red-400 w-full sm:w-fit border-red-400 hover:border-red-300  hover:text-red-300"
+            onClick={() => deleteUserTicket(id)}
+          >
+            <Trash2 className="w-4 h-4 mr-2" />
+            Delete
+          </Button>
+          <Button
+            size="sm"
+            className="w-full sm:w-fit"
+            onClick={handleDownload}
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Download
+          </Button>
+        </div>
+
+        <Separator className="my-4" />
+      </div>
       <div className="sm:sr-only">
         <DownloadableTicket
           ref={ticketRef}
@@ -64,30 +87,6 @@ const TicketDetails = ({
           onDownloadComplete={() => console.log("Download completed")}
           onError={(error) => console.error("Download failed:", error)}
         />
-      </div>
-
-      <div>
-        <Separator className="my-4" />
-
-        <div className="flex justify-end gap-4">
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-red-400 w-full sm:w-fit border-red-400 hover:border-red-300  hover:text-red-300"
-            onClick={() => deleteUserTicket(id)}
-          >
-            <Trash2 className="w-4 h-4 mr-2" />
-            Delete
-          </Button>
-          <Button
-            size="sm"
-            className="w-full sm:w-fit"
-            onClick={handleDownload}
-          >
-            <Download className="w-4 h-4 mr-2" />
-            Download
-          </Button>
-        </div>
       </div>
     </div>
   );
