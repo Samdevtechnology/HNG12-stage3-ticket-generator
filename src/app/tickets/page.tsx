@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import TicketDetails from "./components/TicketDetails";
 import CollapsibleProfile from "./components/AttendeeDetails";
 
-export function TicketListPage() {
+const Page = () => {
   const { tickets } = useBookingStore();
 
   if (tickets.length === 0) {
@@ -62,6 +62,6 @@ export function TicketListPage() {
       </Card>
     </div>
   );
-}
+};
 
-export default TicketListPage;
+export default Page;
