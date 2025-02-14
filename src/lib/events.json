@@ -1,0 +1,165 @@
+{
+  "tickets": [
+    {
+      "id": "t0",
+      "eventName": "Techember Fest ”25",
+      "date": "2025-03-15T19:00:00",
+      "location": "04 Rumens road, Ikoyi, Lagos",
+      "description": "Join us for an unforgettable experience",
+      "image": "https://test.image.com/techember-fest.jpg",
+      "ticketTypes": {
+        "regular": {
+          "price": 0,
+          "quantity": 20,
+          "benefits": ["General admission", "Access to main stage"]
+        },
+        "vip": {
+          "price": 50.0,
+          "quantity": 20,
+          "benefits": [
+            "Priority entrance",
+            "VIP lounge access",
+            "Complimentary drinks"
+          ]
+        },
+        "vvip": {
+          "price": 150.0,
+          "quantity": 20,
+          "benefits": [
+            "Backstage access",
+            "Meet & Greet",
+            "Premium viewing area",
+            "Exclusive merchandise"
+          ]
+        }
+      }
+    },
+    {
+      "id": "t1",
+      "eventName": "HNG Interns Fest ”25",
+      "date": "2025-07-15T18:00:00",
+      "location": "Central Park Arena",
+      "description": "Annual summer music festival featuring top artists across multiple genres",
+      "image": "https://test.image.com/HNG-Inters.jpg",
+      "ticketTypes": {
+        "regular": {
+          "price": 50.0,
+          "quantity": 100,
+          "benefits": ["General admission", "Access to main stage"]
+        },
+        "vip": {
+          "price": 150.0,
+          "quantity": 50,
+          "benefits": [
+            "Priority entrance",
+            "VIP lounge access",
+            "Complimentary drinks"
+          ]
+        },
+        "vvip": {
+          "price": 300.0,
+          "quantity": 20,
+          "benefits": [
+            "Backstage access",
+            "Meet & Greet",
+            "Premium viewing area",
+            "Exclusive merchandise"
+          ]
+        }
+      }
+    },
+    {
+      "id": "t2",
+      "eventName": "Summer Music Festival ”25",
+      "date": "2025-07-15T18:00:00",
+      "location": "Central Park Arena",
+      "description": "Annual summer music festival featuring top artists across multiple genres",
+      "image": "https://test.image.com/summer-fest.jpg",
+      "ticketTypes": {
+        "regular": {
+          "price": 50.0,
+          "quantity": 100,
+          "benefits": ["General admission", "Access to main stage"]
+        },
+        "vip": {
+          "price": 150.0,
+          "quantity": 50,
+          "benefits": [
+            "Priority entrance",
+            "VIP lounge access",
+            "Complimentary drinks"
+          ]
+        },
+        "vvip": {
+          "price": 300.0,
+          "quantity": 20,
+          "benefits": [
+            "Backstage access",
+            "Meet & Greet",
+            "Premium viewing area",
+            "Exclusive merchandise"
+          ]
+        }
+      }
+    },
+    {
+      "id": "t3",
+      "eventName": "Tech Conference ”25",
+      "date": "2025-09-20T09:00:00",
+      "location": "Innovation Center",
+      "description": "Leading tech conference featuring industry experts and networking opportunities",
+      "image": "https://test.image.com/tech-conf.jpg",
+      "ticketTypes": {
+        "regular": {
+          "price": 100.0,
+          "quantity": 200,
+          "benefits": ["Conference access", "Digital materials"]
+        },
+        "vip": {
+          "price": 250.0,
+          "quantity": 75,
+          "benefits": ["Workshop access", "Lunch included", "Recording access"]
+        },
+        "vvip": {
+          "price": 500.0,
+          "quantity": 25,
+          "benefits": [
+            "1-on-1 mentoring",
+            "VIP networking dinner",
+            "Premium seating",
+            "Full conference materials"
+          ]
+        }
+      }
+    },
+    {
+      "id": "t4",
+      "eventName": "Comedy Night Special ”25",
+      "date": "2025-06-30T20:00:00",
+      "location": "Laugh Factory",
+      "description": "A night of laughter with top comedians from around the world",
+      "image": "https://test.image.com/comedy-night.jpg",
+      "ticketTypes": {
+        "regular": {
+          "price": 30.0,
+          "quantity": 150,
+          "benefits": ["Standard seating"]
+        },
+        "vip": {
+          "price": 75.0,
+          "quantity": 40,
+          "benefits": ["Priority seating", "One free drink"]
+        },
+        "vvip": {
+          "price": 150.0,
+          "quantity": 10,
+          "benefits": [
+            "Front row seats",
+            "Meet the comedians",
+            "Dinner included"
+          ]
+        }
+      }
+    }
+  ]
+}

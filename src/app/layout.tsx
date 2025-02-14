@@ -1,15 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Road_Rage, Alatsi } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Container from "@/components/common/Container";
+import Header from "@/components/common/Header";
+// import font from "../../public/fonts/"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const jeju = localFont({
+  src: "../../public/fonts/JejuMyeongjo-Regular.ttf",
+  variable: "--font-jeju",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+
+const alatsi = Alatsi({
+  variable: "--font-alatsi",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const roadRage = Road_Rage({
+  variable: "--font-road-rage",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +42,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${roboto.variable} ${roadRage.variable} ${jeju.variable} ${alatsi.variable} antialiased custom-gradient`}
       >
-        {children}
+        <Container>
+          <Header />
+          {children}
+        </Container>
       </body>
     </html>
   );
