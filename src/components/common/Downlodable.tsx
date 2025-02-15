@@ -1,5 +1,6 @@
 import React, { useRef, useImperativeHandle, forwardRef } from "react";
 import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import Ticket from "./Ticket";
 
 interface DownloadableTicketProps {
@@ -10,9 +11,6 @@ interface DownloadableTicketProps {
   quantity: number;
   large?: boolean;
   ticketType: "regular" | "vip" | "vvip";
-  onDownloadStart?: () => void;
-  onDownloadComplete?: () => void;
-  onError?: (error: Error) => void;
 }
 
 export interface TicketRef {
@@ -21,18 +19,7 @@ export interface TicketRef {
 
 const DownloadableTicket = forwardRef<TicketRef, DownloadableTicketProps>(
   (
-    {
-      name,
-      location,
-      date,
-      userName,
-      quantity,
-      large = false,
-      ticketType,
-      onDownloadStart,
-      onDownloadComplete,
-      onError,
-    },
+    { name, location, date, userName, quantity, large = false, ticketType },
     ref
   ) => {
     const ticketRef = useRef<HTMLDivElement>(null);
@@ -41,8 +28,6 @@ const DownloadableTicket = forwardRef<TicketRef, DownloadableTicketProps>(
       if (!ticketRef.current) return;
 
       try {
-        onDownloadStart?.();
-
         const canvas = await html2canvas(ticketRef.current, {
           backgroundColor: null,
           scale: 2,
@@ -51,15 +36,15 @@ const DownloadableTicket = forwardRef<TicketRef, DownloadableTicketProps>(
         });
 
         const image = canvas.toDataURL("image/png", 1.0);
-        const link = document.createElement("a");
-        link.href = image;
-        link.download = `ticket-${name.toLowerCase().replace(/\s+/g, "-")}.png`;
-        link.click();
-
-        onDownloadComplete?.();
+        const pdf = new jsPDF({
+          orientation: "landscape",
+          unit: "px",
+          format: [canvas.width, canvas.height],
+        });
+        pdf.addImage(image, "PNG", 0, 0, canvas.width, canvas.height);
+        pdf.save(`ticket-${name.toLowerCase()}.pdf`);
       } catch (error) {
         console.error("Error generating ticket image:", error);
-        onError?.(error as Error);
       }
     };
 

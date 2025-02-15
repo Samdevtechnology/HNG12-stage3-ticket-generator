@@ -37,7 +37,7 @@ const Ticket = ({
             </div>
             <div className="absolute text-[#fafafa] w-[250px] top-3.5 left-44">
               <h4 className="font-roadRage mb-1.5 leading-[80%] text-[68px]">
-                {name.slice(0, 17)}
+                {name.slice(0, 18)}
               </h4>
               <span className="flex flex-col text-[17px]">
                 <p>📍 {location}</p>
@@ -72,7 +72,7 @@ const Ticket = ({
           <div className="absolute flex flex-col items-end top-[75px] -right-12 text-[#fafafa] w-[173px] -rotate-90 z-10">
             <div>
               <h6 className="font-roadRage text-2xl leading-5">
-                Techember Fest ”25
+                {name.slice(0, 18)}
               </h6>
               <p className="text-xs leading-6">
                 <span className="font-bold">User Name:</span>{" "}
@@ -146,7 +146,7 @@ const Ticket = ({
           <div className="absolute flex flex-col items-end top-9 -right-[23px] text-[#fafafa] w-[88.5px] -rotate-90 z-10">
             <div>
               <h2 className="font-roadRage text-[11px] leading-[80%]">
-                Techember Fest ”25
+                {name.slice(0, 18)}
               </h2>
 
               <span className="flex flex-col text-[5px]">

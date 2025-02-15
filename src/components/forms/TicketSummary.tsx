@@ -18,11 +18,17 @@ const TicketSummary = ({
     state.getEventById(currentBooking.eventId)
   );
 
-  const ticketRef = useRef<TicketRef>(null);
+  const mobileTicketRef = useRef<TicketRef>(null);
+  const desktopTicketRef = useRef<TicketRef>(null);
 
   const handleDownload = () => {
+    // Tailwind "sm" breakpoint is typically 640px.
+    if (window.matchMedia("(min-width: 640px)").matches) {
+      desktopTicketRef.current?.downloadTicket();
+    } else {
+      mobileTicketRef.current?.downloadTicket();
+    }
     onConfirm();
-    ticketRef.current?.downloadTicket();
   };
 
   if (!event) return <h1>No Event</h1>;
@@ -52,21 +58,18 @@ const TicketSummary = ({
 
           <div className="sm:sr-only -ml-5 xs:-ml-1">
             <DownloadableTicket
-              ref={ticketRef}
+              ref={mobileTicketRef}
               name={event.eventName}
               location={event.location || ""}
               date={event.date}
               quantity={currentBooking.quantity}
               ticketType={currentBooking.ticketType}
               userName={currentBooking.personalDetails.name}
-              onDownloadStart={() => console.log("Download started")}
-              onDownloadComplete={() => console.log("Download completed")}
-              onError={(error) => console.error("Download failed:", error)}
             />
           </div>
           <div className="px-5 sr-only sm:not-sr-only">
             <DownloadableTicket
-              ref={ticketRef}
+              ref={desktopTicketRef}
               name={event.eventName}
               location={event.location || ""}
               date={event.date}
@@ -74,9 +77,6 @@ const TicketSummary = ({
               large
               ticketType={currentBooking.ticketType}
               userName={currentBooking.personalDetails.name}
-              onDownloadStart={() => console.log("Download started")}
-              onDownloadComplete={() => console.log("Download completed")}
-              onError={(error) => console.error("Download failed:", error)}
             />
           </div>
 
