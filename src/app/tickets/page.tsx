@@ -18,7 +18,7 @@ const Page = () => {
     );
   }
 
-  if (tickets.length) {
+  if (!tickets.length) {
     return (
       <div className="flex flex-col items-center justify-center  py-16">
         <Card className="w-full max-w-[700px] bg-[#041e23] border-[#0e464f]">

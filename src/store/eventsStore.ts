@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import eventsData from "@/lib/events.json";
+import eventsData from "./events.json";
 import type { Event, TicketType } from "@/types";
 
 type EventsStore = {
