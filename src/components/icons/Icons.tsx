@@ -7,7 +7,6 @@ export interface IconProps {
 }
 
 const defaultSize = 24;
-// const defaultColor = "#737373";
 
 export const Logo = ({ size = defaultSize }: IconProps) => {
   return (

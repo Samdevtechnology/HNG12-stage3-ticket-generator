@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import useBookingStore from "@/store/bookingStore";
 import { Separator } from "@/components/ui/separator";
 import TicketDetails from "./components/TicketDetails";
-import CollapsibleProfile from "./components/AttendeeDetails";
+import AttendeeDetails from "./components/AttendeeDetails";
 
 const Page = () => {
   const { tickets } = useBookingStore();
@@ -25,7 +25,7 @@ const Page = () => {
   }
 
   return (
-    <div className="py-6">
+    <div className="py-16">
       <Card className="w-full max-w-[700px] mx-auto bg-[#041e23] border-[#0e464f]">
         <CardHeader>
           <CardTitle className="font-jeju text-[#fafafa] text-center text-3xl">
@@ -50,7 +50,7 @@ const Page = () => {
                 </div>
                 <Separator className="my-4" />
 
-                <CollapsibleProfile
+                <AttendeeDetails
                   imageUrl={ticket.personalDetails.profilePic}
                   name={ticket.personalDetails.name}
                   email={ticket.personalDetails.email}

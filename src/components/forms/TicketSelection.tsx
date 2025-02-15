@@ -37,7 +37,7 @@ interface TicketTypeFormProps {
   onBack: () => void;
 }
 
-export function TicketTypeForm({ onNext, onBack }: TicketTypeFormProps) {
+const TicketSelection = ({ onNext, onBack }: TicketTypeFormProps) => {
   const { setQuantity, setTicketType, currentBooking } = useBookingStore();
   const isHydrated = useHydration();
   const isEventsHydrated = useEventsHydration();
@@ -64,9 +64,8 @@ export function TicketTypeForm({ onNext, onBack }: TicketTypeFormProps) {
     }
   }, [isHydrated, event?.id, form, currentBooking]);
 
-  // console.log("🚀 ~ TicketTypeForm ~ isHydrated:", isHydrated);
   if (!isHydrated || !isEventsHydrated || !form) {
-    return <div>Loading...</div>; // Or your loading component
+    return <div>Loading...</div>;
   }
 
   if (!event) return <div>NO Event</div>;
@@ -214,4 +213,6 @@ export function TicketTypeForm({ onNext, onBack }: TicketTypeFormProps) {
       </form>
     </Form>
   );
-}
+};
+
+export default TicketSelection;

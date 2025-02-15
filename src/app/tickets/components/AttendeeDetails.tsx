@@ -13,7 +13,7 @@ interface ProfileProps {
   imageUrl?: string;
 }
 
-const CollapsibleProfile = ({ name, email, imageUrl, about }: ProfileProps) => {
+const AttendeeDetails = ({ name, email, imageUrl, about }: ProfileProps) => {
   return (
     <Accordion type="single" collapsible className="w-full text-[#fafafa]/80">
       <AccordionItem value="profile" className="border rounded-lg">
@@ -53,4 +53,4 @@ const CollapsibleProfile = ({ name, email, imageUrl, about }: ProfileProps) => {
   );
 };
 
-export default CollapsibleProfile;
+export default AttendeeDetails;

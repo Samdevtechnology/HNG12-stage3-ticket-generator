@@ -1,22 +1,30 @@
 import useEventsStore from "@/store/eventsStore";
 import useBookingStore from "@/store/bookingStore";
+import DownloadableTicket, { TicketRef } from "@/components/common/Downlodable";
 
 import { Button } from "@/components/ui/button";
-import Ticket from "../common/Ticket";
 import { Progress } from "../ui/progress";
+import { useRef } from "react";
 
 // components/forms/TicketSummaryForm.tsx
-export function TicketSummaryForm({
+const TicketSummary = ({
   onConfirm,
   onReset,
 }: {
   onConfirm: () => void;
   onReset: () => void;
-}) {
+}) => {
   const { currentBooking } = useBookingStore();
   const event = useEventsStore((state) =>
     state.getEventById(currentBooking.eventId)
   );
+
+  const ticketRef = useRef<TicketRef>(null);
+
+  const handleDownload = () => {
+    onConfirm();
+    ticketRef.current?.downloadTicket();
+  };
 
   if (!event) return <h1>No Event</h1>;
   if (!currentBooking.ticketType) return <h1>No ticketType</h1>;
@@ -43,25 +51,33 @@ export function TicketSummaryForm({
             </p>
           </div>
 
-          <div className="sm:sr-only pt-8 pb-6">
-            <Ticket
+          <div className="sm:sr-only">
+            <DownloadableTicket
+              ref={ticketRef}
               name={event.eventName}
               location={event.location || ""}
               date={event.date}
               quantity={currentBooking.quantity}
               ticketType={currentBooking.ticketType}
               userName={currentBooking.personalDetails.name}
+              onDownloadStart={() => console.log("Download started")}
+              onDownloadComplete={() => console.log("Download completed")}
+              onError={(error) => console.error("Download failed:", error)}
             />
           </div>
-          <div className="px-5 sr-only sm:not-sr-only pt-8 pb-6">
-            <Ticket
+          <div className="px-5 sr-only sm:not-sr-only">
+            <DownloadableTicket
+              ref={ticketRef}
               name={event.eventName}
               location={event.location || ""}
               date={event.date}
-              large
               quantity={currentBooking.quantity}
+              large
               ticketType={currentBooking.ticketType}
               userName={currentBooking.personalDetails.name}
+              onDownloadStart={() => console.log("Download started")}
+              onDownloadComplete={() => console.log("Download completed")}
+              onError={(error) => console.error("Download failed:", error)}
             />
           </div>
 
@@ -73,7 +89,10 @@ export function TicketSummaryForm({
             >
               Book Another Ticket
             </Button>
-            <Button onClick={onConfirm} className="w-full py-3 px-6 text-base">
+            <Button
+              onClick={handleDownload}
+              className="w-full py-3 px-6 text-base"
+            >
               Download Ticket
             </Button>
           </div>
@@ -81,4 +100,5 @@ export function TicketSummaryForm({
       </div>
     </div>
   );
-}
+};
+export default TicketSummary;

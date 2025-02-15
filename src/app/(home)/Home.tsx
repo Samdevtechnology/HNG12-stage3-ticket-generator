@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Banner from "@/components/common/Banner";
 
-const EventsPage = () => {
+const Home = () => {
   const router = useRouter();
   const events = useEventsStore((state) => state.events);
   const isHydrated = useEventsStore((state) => state._hasHydrated);
@@ -41,12 +41,23 @@ const EventsPage = () => {
           >
             <CardContent className="flex-grow">
               <div className="space-y-6 mt-6">
-                <Banner
-                  name={event.eventName}
-                  location={event.location || ""}
-                  date={event.date}
-                  description={event.description}
-                />
+                <div
+                  className=" cursor-pointer"
+                  onClick={() =>
+                    handleEventSelect(
+                      event.id,
+                      event.eventName,
+                      event.location || ""
+                    )
+                  }
+                >
+                  <Banner
+                    name={event.eventName}
+                    location={event.location || ""}
+                    date={event.date}
+                    description={event.description}
+                  />
+                </div>
 
                 <div className="mt-4">
                   <h3 className="font-semibold mb-2">Available Tickets:</h3>
@@ -93,4 +104,4 @@ const EventsPage = () => {
   );
 };
 
-export default EventsPage;
+export default Home;

@@ -1,4 +1,3 @@
-// store/useBookingStore.ts
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { nanoid } from "nanoid";
@@ -190,7 +189,7 @@ const useBookingStore = create<BookingState & BookingActions>()(
       resetBooking: () => {
         set({
           ...initialBookingState,
-          tickets: get().tickets, // Preserve user tickets
+          tickets: get().tickets,
         });
       },
 
@@ -200,7 +199,6 @@ const useBookingStore = create<BookingState & BookingActions>()(
         }));
       },
 
-      // Error handling
       setError: (error) => {
         set({ error });
       },
@@ -208,7 +206,6 @@ const useBookingStore = create<BookingState & BookingActions>()(
     {
       name: "booking-storage",
       onRehydrateStorage: () => (state) => {
-        console.log("🚀 onRehydrateStorage ~ state:", state);
         state?.setHasHydrated(true);
       },
     }

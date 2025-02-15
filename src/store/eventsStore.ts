@@ -1,4 +1,3 @@
-// store/useBookingStore.ts
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import eventsData from "@/lib/events.json";

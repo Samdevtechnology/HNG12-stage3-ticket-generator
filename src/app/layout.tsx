@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Container from "@/components/common/Container";
 import Header from "@/components/common/Header";
-// import font from "../../public/fonts/"
 
 const jeju = localFont({
   src: "../../public/fonts/JejuMyeongjo-Regular.ttf",

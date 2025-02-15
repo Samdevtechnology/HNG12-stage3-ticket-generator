@@ -1,4 +1,3 @@
-// import Ticket from "@/components/common/Ticket";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import useBookingStore from "@/store/bookingStore";

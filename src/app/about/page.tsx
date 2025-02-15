@@ -153,12 +153,20 @@ const page = () => {
           <div className="flex flex-col justify-center mx-auto max-w-[460px] items-center w-full gap-8">
             <h3 className="text-5xl sm:text-[80px] text-white">💛 Enjoy</h3>
             <div className="w-full rounded-2xl py-4 px-12 gap-8 border border-[#0e464f] bg-[#041e23] flex">
-              <Link className="w-full" target="_blank" href="/">
+              <Link
+                className="w-full"
+                target="_blank"
+                href="https://www.figma.com/community/file/1470800949188681164/event-ticket-booking-ui-open-source-practice-project"
+              >
                 <Button className="w-full" variant="outline">
                   Design File
                 </Button>
               </Link>
-              <Link className="w-full" target="_blank" href="/">
+              <Link
+                className="w-full"
+                target="_blank"
+                href="https://github.com/Samdevtechnology/HNG12-stage3-ticket-generator"
+              >
                 <Button className="w-full"> Github code</Button>
               </Link>
             </div>

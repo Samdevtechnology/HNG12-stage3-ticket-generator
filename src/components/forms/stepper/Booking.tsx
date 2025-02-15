@@ -1,12 +1,10 @@
 "use client";
 
 import useBookingStore from "@/store/bookingStore";
-
-// components/stepper/BookingStepper.tsx
 import { useRouter } from "next/navigation";
-import { TicketTypeForm } from "../TicketSelection";
-import { PersonalDetailsForm } from "../AttendeeDetails";
-import { TicketSummaryForm } from "../TicketSummary";
+import TicketSelection from "../TicketSelection";
+import AttendeeDetails from "../AttendeeDetails";
+import TicketSummary from "../TicketSummary";
 
 export function BookingStepper() {
   const router = useRouter();
@@ -24,13 +22,13 @@ export function BookingStepper() {
     <div className="max-w-[700px] mx-auto py-8">
       <div className="mt-8">
         {currentStep === 1 && (
-          <TicketTypeForm onNext={nextStep} onBack={router.back} />
+          <TicketSelection onNext={nextStep} onBack={router.back} />
         )}
         {currentStep === 2 && (
-          <PersonalDetailsForm onNext={nextStep} onBack={previousStep} />
+          <AttendeeDetails onNext={nextStep} onBack={previousStep} />
         )}
         {currentStep === 3 && (
-          <TicketSummaryForm onConfirm={handleConfirm} onReset={handleReset} />
+          <TicketSummary onConfirm={handleConfirm} onReset={handleReset} />
         )}
       </div>
     </div>

@@ -20,7 +20,6 @@ import { useEffect } from "react";
 import { Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// components/forms/PersonalDetailsForm.tsx
 const personalDetailsSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -28,13 +27,13 @@ const personalDetailsSchema = z.object({
   details: z.string().min(1, "Project Detail is required"),
 });
 
-export function PersonalDetailsForm({
+const PersonalDetailsForm = ({
   onNext,
   onBack,
 }: {
   onNext: () => void;
   onBack: () => void;
-}) {
+}) => {
   const { updateCurrentBooking, currentBooking, createTicket } =
     useBookingStore();
   const isHydrated = useHydration();
@@ -244,4 +243,6 @@ export function PersonalDetailsForm({
       </form>
     </Form>
   );
-}
+};
+
+export default PersonalDetailsForm;
