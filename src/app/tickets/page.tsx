@@ -1,23 +1,30 @@
 "use client";
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import useBookingStore from "@/store/bookingStore";
+import useBookingStore, { useHydration } from "@/store/bookingStore";
 import { Separator } from "@/components/ui/separator";
 import TicketDetails from "./components/TicketDetails";
 import AttendeeDetails from "./components/AttendeeDetails";
 
 const Page = () => {
   const { tickets } = useBookingStore();
+  const isHydrated = useHydration();
 
-  if (tickets.length === 0) {
+  if (!isHydrated) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[50vh] p-4">
+      <div className="flex flex-col items-center justify-center py-16">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (tickets.length) {
+    return (
+      <div className="flex flex-col items-center justify-center  py-16">
         <Card className="w-full max-w-[700px] bg-[#041e23] border-[#0e464f]">
-          <CardContent className="flex flex-col items-center justify-center p-12">
+          <CardContent className="flex flex-col text-[#fafafa] items-center justify-center p-12">
             <h2 className="text-2xl font-alatsi mb-4">No Tickets Found</h2>
-            <p className="text-[#fafafa]">
-              You haven&#39;t purchased any tickets yet.
-            </p>
+            <p>You haven&#39;t purchased any tickets yet.</p>
           </CardContent>
         </Card>
       </div>
@@ -32,13 +39,13 @@ const Page = () => {
             My Tickets
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="p-1 xs:p-6 xs:pt-0 space-y-6">
           {tickets.map((ticket) => (
             <Card
               key={ticket.id}
               className="bg-[#08252b] border-[#0e464f] hover:border-[#197686] transition-colors"
             >
-              <CardContent className="p-6">
+              <CardContent className="p-4 xs:p-6">
                 <div className="flex justify-center items-center">
                   <TicketDetails
                     id={ticket.id}

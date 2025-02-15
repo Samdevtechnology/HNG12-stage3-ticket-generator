@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "../ui/progress";
 import { useRef } from "react";
 
-// components/forms/TicketSummaryForm.tsx
 const TicketSummary = ({
   onConfirm,
   onReset,
@@ -51,7 +50,7 @@ const TicketSummary = ({
             </p>
           </div>
 
-          <div className="sm:sr-only">
+          <div className="sm:sr-only -ml-5 xs:-ml-1">
             <DownloadableTicket
               ref={ticketRef}
               name={event.eventName}
