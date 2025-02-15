@@ -168,6 +168,7 @@ const TicketSelection = ({ onNext, onBack }: TicketTypeFormProps) => {
                     <Select
                       value={field.value?.toString()}
                       onValueChange={async (value) => {
+                        if (!value) return;
                         const numericValue = Number(value);
                         field.onChange(numericValue);
                         const isValid = await form.trigger("quantity");
